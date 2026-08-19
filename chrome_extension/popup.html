@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Phishing URL Detector</title>
+  <style>
+    body {
+      width: 300px;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 10px;
+    }
+
+    .status {
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+
+    .status.enabled {
+      background: #e8f5e8;
+      color: #2e7d32;
+      border: 1px solid #4caf50;
+    }
+
+    .status.disabled {
+      background: #ffebee;
+      color: #c62828;
+      border: 1px solid #f44336;
+    }
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      margin: 15px 0;
+    }
+
+    .toggle input {
+      margin-right: 10px;
+    }
+
+    .button {
+      background: #1976d2;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    .button:hover {
+      background: #1565c0;
+    }
+
+    .button.secondary {
+      background: #757575;
+    }
+
+    .button.secondary:hover {
+      background: #616161;
+    }
+
+    .settings {
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid #ddd;
+    }
+
+    .setting-item {
+      margin: 10px 0;
+    }
+
+    .setting-item label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .setting-item input {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+    }
+
+    .stats {
+      background: #f5f5f5;
+      padding: 10px;
+      border-radius: 5px;
+      margin: 10px 0;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="icons/icon48.png" alt="Logo" class="logo">
+    <h3>Phishing URL Detector</h3>
+  </div>
+
+  <div id="status" class="status enabled">
+    Extension is ENABLED
+  </div>
+
+  <div class="toggle">
+    <input type="checkbox" id="enabled" checked>
+    <label for="enabled">Enable URL monitoring</label>
+  </div>
+
+  <button id="openDetector" class="button">Open Phishing Detector</button>
+  <button id="testUrl" class="button secondary">Test with Current Tab</button>
+
+  <div class="settings">
+    <h4>Settings</h4>
+
+    <div class="setting-item">
+      <label for="detectorUrl">Detector URL:</label>
+      <input type="text" id="detectorUrl" value="http://localhost:8501">
+    </div>
+
+    <div class="toggle">
+      <input type="checkbox" id="autoRedirect" checked>
+      <label for="autoRedirect">Auto-redirect to detector</label>
+    </div>
+
+    <div class="toggle">
+      <input type="checkbox" id="showWarnings" checked>
+      <label for="showWarnings">Show phishing warnings</label>
+    </div>
+
+    <button id="saveSettings" class="button">Save Settings</button>
+  </div>
+
+  <div class="stats">
+    <strong>Today's Activity:</strong><br>
+    URLs Checked: <span id="urlsChecked">0</span><br>
+    Phishing Blocked: <span id="phishingBlocked">0</span>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

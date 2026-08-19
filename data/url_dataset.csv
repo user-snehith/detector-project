@@ -1,0 +1,13 @@
+url,label
+http://google.com,0
+https://www.facebook.com/login,0
+https://github.com,0
+https://example.com,0
+https://amazon.com,0
+http://secure-login-paypal.com,1
+http://paypal.com.sign-in.verify.com,1
+http://123.45.67.89/confirm,1
+https://bankofamerica.verify-account.com,1
+http://free-gift-card.app,1
+http://urgent-update-info.com,1
+https://login-verify.suspiciousprovider.com,1
